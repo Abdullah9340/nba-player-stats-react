@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  text-align: center;
+  border-style: solid;
+  border-top: 1cm;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+  font-weight: normal;
+  border-color: grey;
+}
+
+.searchBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#searchBar {
+  height: 8vh;
+  width: 40vw;
+  font-size: 20px;
+  padding: 2px;
+  box-shadow: 1px 1px lightgrey;
+  border: 1px;
+}
+
+#searchButton {
+  background-color: white;
+  color: black;
+  margin-left: 10px;
+  height: 8vh;
+  width: 10vw;
+  font-size: 20px;
+  border-width: 1px;
+}
