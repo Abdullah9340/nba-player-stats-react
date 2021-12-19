@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import PlayerSeasons from "./PlayerSeasons";
 function Player(props) {
   const playerID = props.id;
@@ -12,7 +11,9 @@ function Player(props) {
     const fetchData = async () => {
       await fetch(`http://127.0.0.1:5000/getPlayer/picture/${playerID}`)
         .then((res) => res.json())
-        .then((res) => setPlayerURL(res.info))
+        .then((res) => {
+          setPlayerURL(res.info)
+        })
         .catch((e) => console.error(e));
       await fetch(`http://127.0.0.1:5000/getPlayer/seasons/${playerID}`)
         .then((res) => res.json())
@@ -34,7 +35,7 @@ function Player(props) {
     <div>
       <img src={playerURL} alt = "PICTURE NOT FOUND"></img>
       <h3>{name}</h3>
-      <table>
+      <table className = "tableStyle">
         <tbody>
           <tr>
             <th>SEASON</th>
@@ -52,11 +53,12 @@ function Player(props) {
             <th>3PT %</th>
             <th>FT %</th>
           </tr>
-          {seasons.map((season, i) => {
+          {seasons.reverse().map((season, i) => {
             return <PlayerSeasons key={i} season={season} />;
           })}
         </tbody>
       </table>
+      <br/>
     </div>
   );
 }
